@@ -169,12 +169,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>net.william278</groupId>
-            <artifactId>papiproxybridge</artifactId>
-            <version>1.8.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>com.github.Samhuwsluz</groupId>
             <artifactId>RankPointsAPI</artifactId>
             <version>v0.1.5</version>
