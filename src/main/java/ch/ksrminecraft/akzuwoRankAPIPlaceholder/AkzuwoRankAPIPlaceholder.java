@@ -6,15 +6,12 @@ import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
-import net.william278.papiproxybridge.api.PlaceholderSupplier;
 import com.velocitypowered.api.proxy.ProxyServer;
-import net.william278.papiproxybridge.api.PlaceholderAPI;
 import com.velocitypowered.api.command.CommandManager;
 import org.slf4j.Logger;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.UUID;
 
 @Plugin(id = "akzuwoextension", name = "AkzuwoRankAPIPlaceholder", version = "1.0")
 public class AkzuwoRankAPIPlaceholder {
@@ -43,13 +40,7 @@ public class AkzuwoRankAPIPlaceholder {
             return;
         }
 
-        // Register placeholder with PAPIProxyBridge
-        PlaceholderAPI.getInstance().registerPlaceholder("akzuwoextension_points", new PlaceholderSupplier() {
-            @Override
-            public String onRequest(UUID uuid) {
-                return String.valueOf(rankAPI.getPoints(uuid));
-            }
-        });
+
 
         if (rankAPI.isCommandsEnabled()) {
             CommandManager manager = server.getCommandManager();
