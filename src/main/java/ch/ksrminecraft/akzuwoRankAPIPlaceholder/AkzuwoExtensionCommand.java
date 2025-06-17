@@ -25,7 +25,7 @@ public class AkzuwoExtensionCommand implements SimpleCommand {
 
     @Override
     public void execute(Invocation invocation) {
-        String[] args = invocation.arguments().split(" ");
+        String[] args = invocation.arguments();
         if (args.length == 0 || args[0].isEmpty()) {
             invocation.source().sendMessage(Component.text("Usage: /akzuwoextension <setpoints|addpoints|getpoints> <player> [points]"));
             return;
