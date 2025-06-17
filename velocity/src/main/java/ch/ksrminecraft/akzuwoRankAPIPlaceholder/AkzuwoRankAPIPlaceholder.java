@@ -8,12 +8,13 @@ import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
+import ch.ksrminecraft.akzuwoRankAPIPlaceholder.BuildConstants;
 import org.slf4j.Logger;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-@Plugin(id = "akzuwoextension", name = "AkzuwoRankAPIPlaceholder", version = "1.0")
+@Plugin(id = "akzuwoextension", name = "AkzuwoRankAPIPlaceholder", version = BuildConstants.VERSION)
 public class AkzuwoRankAPIPlaceholder {
 
     private final ProxyServer server;
