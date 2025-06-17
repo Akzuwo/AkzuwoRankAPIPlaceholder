@@ -9,6 +9,7 @@ import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 import net.william278.papiproxybridge.api.PlaceholderAPI;
 import net.william278.papiproxybridge.api.PlaceholderSupplier;
+import com.velocitypowered.api.command.CommandManager;
 import org.slf4j.Logger;
 
 import java.nio.file.Files;
@@ -49,6 +50,14 @@ public class AkzuwoRankAPIPlaceholder {
                 return String.valueOf(rankAPI.getPoints(uuid));
             }
         });
+
+        if (rankAPI.isCommandsEnabled()) {
+            CommandManager manager = server.getCommandManager();
+            manager.register(
+                    manager.metaBuilder("akzuwoextension").plugin(this).build(),
+                    new AkzuwoExtensionCommand(server, rankAPI)
+            );
+        }
 
         logger.info("AkzuwoRankAPIPlaceholder loaded");
     }

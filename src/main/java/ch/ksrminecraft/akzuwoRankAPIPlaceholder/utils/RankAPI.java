@@ -12,6 +12,7 @@ import java.util.UUID;
 
 public class RankAPI {
     private final PointsAPI api;
+    private final boolean commandsEnabled;
 
     public RankAPI(Path dataDirectory, Logger logger) throws Exception {
         Path configFile = dataDirectory.resolve("config.yml");
@@ -36,9 +37,22 @@ public class RankAPI {
         boolean debug = Boolean.parseBoolean(String.valueOf(db.getOrDefault("debug", false)));
 
         this.api = new PointsAPI(url, username, password, logger, debug);
+        this.commandsEnabled = Boolean.parseBoolean(String.valueOf(config.getOrDefault("commands", true)));
     }
 
     public int getPoints(UUID uuid) {
         return api.getPoints(uuid);
+    }
+
+    public void addPoints(UUID uuid, int delta) {
+        api.addPoints(uuid, delta);
+    }
+
+    public void setPoints(UUID uuid, int points) {
+        api.setPoints(uuid, points);
+    }
+
+    public boolean isCommandsEnabled() {
+        return commandsEnabled;
     }
 }

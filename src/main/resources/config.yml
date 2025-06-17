@@ -3,3 +3,4 @@ database:
   username: "username"
   password: "password"
   debug: true
+commands: true
