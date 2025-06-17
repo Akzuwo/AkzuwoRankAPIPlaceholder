@@ -36,7 +36,8 @@ public class RankAPI {
         String password = (String) db.get("password");
         boolean debug = Boolean.parseBoolean(String.valueOf(db.getOrDefault("debug", false)));
 
-        this.api = new PointsAPI(url, username, password, logger, debug);
+        java.util.logging.Logger julLogger = java.util.logging.Logger.getLogger(logger.getName());
+        this.api = new PointsAPI(url, username, password, julLogger, debug);
         this.commandsEnabled = Boolean.parseBoolean(String.valueOf(config.getOrDefault("commands", true)));
     }
 
