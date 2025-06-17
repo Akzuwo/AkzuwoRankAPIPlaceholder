@@ -3,25 +3,13 @@
   <groupId>ch.ksrminecraft</groupId>
   <artifactId>AkzuwoRankAPIPlaceholder</artifactId>
   <version>1.1</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <modules>
     <module>common</module>
     <module>velocity</module>
     <module>paper</module>
+    <module>all</module>
   </modules>
-
-  <dependencies>
-    <dependency>
-      <groupId>ch.ksrminecraft</groupId>
-      <artifactId>velocity</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>ch.ksrminecraft</groupId>
-      <artifactId>paper</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-  </dependencies>
   <properties>
     <java.version>17</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -45,24 +33,5 @@
     </repository>
   </repositories>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.5.1</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <configuration>
-              <createDependencyReducedPom>false</createDependencyReducedPom>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+  
 </project>
