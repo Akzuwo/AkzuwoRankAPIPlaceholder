@@ -1,0 +1,12 @@
+{
+  "id": "akzuwoextension",
+  "name": "AkzuwoRankAPIPlaceholder",
+  "version": "${project.version}",
+  "main": "ch.ksrminecraft.akzuwoRankAPIPlaceholder.AkzuwoRankAPIPlaceholder",
+  "dependencies": [
+    {
+      "id": "papiproxybridge",
+      "optional": true
+    }
+  ]
+}

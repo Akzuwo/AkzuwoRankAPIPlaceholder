@@ -148,8 +148,12 @@
 
     <repositories>
         <repository>
-            <id>papermc-repo</id>
-            <url>https://repo.papermc.io/repository/maven-public/</url>
+            <id>velocitypowered</id>
+            <url>https://repo.velocitypowered.com/snapshots/</url>
+        </repository>
+        <repository>
+            <id>william278-releases</id>
+            <url>https://repo.william278.net/releases</url>
         </repository>
         <repository>
             <id>jitpack.io</id>
@@ -161,13 +165,24 @@
         <dependency>
             <groupId>com.velocitypowered</groupId>
             <artifactId>velocity-api</artifactId>
-            <version>3.4.0-SNAPSHOT</version>
+            <version>3.2.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.william278</groupId>
+            <artifactId>papiproxybridge</artifactId>
+            <version>1.8.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.Samhuwsluz</groupId>
             <artifactId>RankPointsAPI</artifactId>
             <version>v0.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.2</version>
         </dependency>
     </dependencies>
 </project>
