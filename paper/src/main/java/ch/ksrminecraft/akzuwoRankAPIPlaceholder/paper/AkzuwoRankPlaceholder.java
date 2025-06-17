@@ -16,7 +16,9 @@ public class AkzuwoRankPlaceholder extends PlaceholderExpansion {
 
     @Override
     public String getIdentifier() {
-        return "akzuwoextension";
+        // Use a dedicated identifier to avoid conflicts with other plugins
+        // that might already register "akzuwoextension" placeholders.
+        return "akzuwo_rankpoints";
     }
 
     @Override
@@ -39,7 +41,7 @@ public class AkzuwoRankPlaceholder extends PlaceholderExpansion {
         if (player == null) {
             return "";
         }
-        if (identifier.equalsIgnoreCase("rankpoints")) {
+        if (identifier.equalsIgnoreCase("points")) {
             return String.valueOf(api.getPoints(player.getUniqueId()));
         }
         return null;
