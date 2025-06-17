@@ -6,6 +6,11 @@ import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
 import net.kyori.adventure.text.Component;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import java.util.Optional;
 
 public class AkzuwoExtensionCommand implements SimpleCommand {
@@ -58,6 +63,30 @@ public class AkzuwoExtensionCommand implements SimpleCommand {
                 invocation.source().sendMessage(Component.text("Unknown subcommand."));
                 break;
         }
+    }
+
+    @Override
+    public List<String> suggest(Invocation invocation) {
+        String[] args = invocation.arguments();
+        if (args.length == 0) {
+            return Arrays.asList("setpoints", "addpoints", "getpoints");
+        }
+
+        if (args.length == 1) {
+            return Arrays.asList("setpoints", "addpoints", "getpoints").stream()
+                    .filter(s -> s.startsWith(args[0].toLowerCase()))
+                    .collect(Collectors.toList());
+        }
+
+        if (args.length == 2 && Arrays.asList("setpoints", "addpoints", "getpoints")
+                .contains(args[0].toLowerCase())) {
+            return server.getAllPlayers().stream()
+                    .map(Player::getUsername)
+                    .filter(n -> n.toLowerCase().startsWith(args[1].toLowerCase()))
+                    .collect(Collectors.toList());
+        }
+
+        return Collections.emptyList();
     }
 
     private void handleSet(Invocation invocation, String playerName, String value) {
