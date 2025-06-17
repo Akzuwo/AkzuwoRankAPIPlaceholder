@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AkzuwoRankAPIPlaceholder.iml" filepath="$PROJECT_DIR$/AkzuwoRankAPIPlaceholder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/paper/paper.iml" filepath="$PROJECT_DIR$/paper/paper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/velocity/velocity.iml" filepath="$PROJECT_DIR$/velocity/velocity.iml" />
     </modules>
   </component>
 </project>
