@@ -12,14 +12,17 @@ import org.slf4j.LoggerFactory;
 
 public class AkzuwoRankAPIPaper extends JavaPlugin {
 
+    private final Logger logger;
     private RankAPI rankAPI;
-    private Logger logger;
     private int announceTask;
+
+    public AkzuwoRankAPIPaper() {
+        this.logger = LoggerFactory.getLogger(AkzuwoRankAPIPaper.class);
+    }
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
-        logger = LoggerFactory.getLogger(getLogger().getName());
         try {
             rankAPI = new RankAPI(getDataFolder().toPath(), logger);
         } catch (Exception e) {

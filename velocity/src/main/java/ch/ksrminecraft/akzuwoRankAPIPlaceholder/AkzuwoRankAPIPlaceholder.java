@@ -9,7 +9,6 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -19,12 +18,13 @@ public class AkzuwoRankAPIPlaceholder {
 
     private final ProxyServer server;
     private final Path dataDirectory;
-    private final Logger logger = LoggerFactory.getLogger(AkzuwoRankAPIPlaceholder.class);
+    private final Logger logger;
     private RankAPI rankAPI;
 
     @Inject
-    public AkzuwoRankAPIPlaceholder(ProxyServer server, @DataDirectory Path dataDirectory) {
+    public AkzuwoRankAPIPlaceholder(ProxyServer server, Logger logger, @DataDirectory Path dataDirectory) {
         this.server = server;
+        this.logger = logger;
         this.dataDirectory = dataDirectory;
     }
 

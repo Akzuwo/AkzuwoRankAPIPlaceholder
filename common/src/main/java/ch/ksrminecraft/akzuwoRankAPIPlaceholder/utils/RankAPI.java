@@ -13,8 +13,10 @@ import java.util.UUID;
 public class RankAPI {
     private final PointsAPI api;
     private final boolean commandsEnabled;
+    private final Logger logger;
 
     public RankAPI(Path dataDirectory, Logger logger) throws Exception {
+        this.logger = logger;
         Path configFile = dataDirectory.resolve("config.yml");
         if (Files.notExists(configFile)) {
             try (InputStream in = RankAPI.class.getClassLoader().getResourceAsStream("config.yml")) {
@@ -36,7 +38,7 @@ public class RankAPI {
         String password = (String) db.get("password");
         boolean debug = Boolean.parseBoolean(String.valueOf(db.getOrDefault("debug", false)));
 
-        java.util.logging.Logger julLogger = java.util.logging.Logger.getLogger(logger.getName());
+        java.util.logging.Logger julLogger = java.util.logging.Logger.getLogger(this.logger.getName());
         this.api = new PointsAPI(url, username, password, julLogger, debug);
         this.commandsEnabled = Boolean.parseBoolean(String.valueOf(config.getOrDefault("commands", true)));
     }
