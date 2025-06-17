@@ -1,0 +1,6 @@
+name: AkzuwoRankAPIPlaceholder
+main: ch.ksrminecraft.akzuwoRankAPIPlaceholder.paper.AkzuwoRankAPIPaper
+version: ${project.version}
+api-version: 1.20
+load: POSTWORLD
+depend: [PlaceholderAPI]
